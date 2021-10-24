@@ -5,6 +5,7 @@
 html, body{
     --black: hsl(240, 6%, 13%);
     --gray: hsl(240,9%, 89%);
+    --more-black: hsl(240, 6% ,8%);
 
     height: 100%;
     font-family: 'Roboto', sans-serif;
@@ -14,12 +15,14 @@ html, body{
 body{
     display: grid;
     place-items: center;
+    overflow-x: hidden;
 }
 
 main{
-    background: url(images/background.svg);
-    width: 375px;
-    height: 812px;
+    background: url(images/background.svg) no-repeat center/cover;
+    width: 100vw;
+    min-height: 812px;
+    height: 100vh;
 }
 
 .container{
@@ -80,3 +83,56 @@ ul{
     gap: 0.5rem;
     justify-content: center;
 }
+
+li{
+    transition: all 0.5s;
+}
+
+li:hover{
+    transform: translateY(-0.75rem);
+}
+
+@media screen and (min-width: 960px){
+    body{
+        background-image: url(images/Desktop.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: var(--more-black);
+    }
+
+    main{
+        background: url(images/mask.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        max-width: 358px;
+        min-height: 540px;
+        height: 540px;
+    }
+
+    .avatar{
+        margin: 2rem auto 0;
+    }
+
+    ul{
+        margin-top: 2.5rem;
+    }
+
+    .band-wraper{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 358px;
+        height: 40px;
+    }
+
+    .band{
+        width: 64px;
+        height: 20rem;
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: url(images/faixa.svg) no-repeat center/cover;
+    }
+}
+
